@@ -1,3 +1,8 @@
+## Project writeup
+
+I am providing my jupyter notebook as project writeup. I have addressed all the rubric pionts in my notebook.
+
+---
 
 ### Do the required imports
 
