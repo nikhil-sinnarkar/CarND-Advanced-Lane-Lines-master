@@ -667,3 +667,15 @@ HTML("""
 
 
 [Here](https://github.com/nikhil-sinnarkar/CarND-Advanced-Lane-Lines-master/blob/master/test_videos_output/output_video.mp4) is the link to my video.
+
+---
+
+#### Discissions 
+
+I would like to point out few issues related to my pipeline.
+
+* After I developed my pipeline it was working well for most part of the road except for the part where the color of the road changes (shadows, white patch of road). At these places the lane line would jitter a lot between every frame. In order to address this issue I took moving average of the past 15 frames for calculation of polynomial which determines the lane lines. This reduced the jitter and made the lane lines more smother from frame to frame.
+
+* My pipeline works on S channel and x gradient combined. In situatioins where there is some changes in the color or brightness of the road parallel to the lane lines then it will get picked up in the binary image. This would then result in wrong detection of the lane lines.
+
+* To make the pipeline more robust, information from other channels (like L channel) of the image can be included in the combined binary.
